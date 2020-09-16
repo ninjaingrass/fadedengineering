@@ -1,0 +1,230 @@
+/* ==========================
+TRCoA Music Player - 2019
+========================== */
+
+@import url('font-awesome.min.css');
+/* @import url('animations.css');*/
+@import url('magnific-popup.css');
+
+body {
+    margin: 0;
+    padding: 0 0 50px !important;
+}
+
+.mp-wrapper {
+    font-size: 14px !important;
+    font-family: inherit;
+    text-align: center;
+    background: #fff;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.mp-filters {
+    margin: 30px auto;
+
+    &__item {
+        display: inline-block;
+        margin: 0 2px;
+
+        a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0 15px;
+            height: 30px;
+            line-height: 28px;
+            background: #eee;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all ease .3s;
+
+            &:hover {
+                background: #ccc;
+            }
+        }
+
+        &.active a {
+            background: #ccc;
+        }
+    }
+}
+
+.mp-artists {
+    &--nomenu {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    &__item {
+        width: 25%;
+
+        &-container {
+            position: relative;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        &-overlay {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background: rgba(255, 255, 255, .7);
+            transition: ease all .3s;
+        }
+
+        &-credits {
+            padding: 10px;
+            line-height: 1.4em;
+
+            &-links {
+                a {
+                    display: inline-block;
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 22px;
+                    color: inherit;
+                    background-color: #ffffff;
+                    border-radius: 50px;
+                    transition: ease all .3s;
+
+                    &:hover {
+                        color: #fff;
+                        background: #333;
+                    }
+
+                    .fa {
+                        margin-left: 2px;
+                    }
+                }
+            }
+
+            &-genre {
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
+
+        &:hover {
+            .mp-artists__item-overlay {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.mp-play__footer {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    line-height: 1.2em;
+    padding: 8px 0 12px;
+
+    b {
+        display: block;
+    }
+
+    small {
+        font-size: 100%;
+        font-weight: 300;
+    }
+
+    &--visible  {
+        &.fa-volume-up {
+            position: absolute;
+            right: 10px;
+            bottom: 18px;
+            color: #999;
+        }
+    }
+
+    &--active {
+        background: #eee;
+    }
+}
+
+.mp-controls {
+    &__container {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        color: #fff !important;
+        background: #222;
+        z-index: 9999;
+    }
+
+    .fa {
+        margin: 0 6px;
+        cursor: pointer;
+    }
+
+    &__player {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__progress {
+        min-width: 150px;
+        margin-left: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background: #fff;
+        cursor: pointer;
+
+        .elapsed {
+            height: 10px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            background:#a00;
+        }
+
+        &-wrapper {
+            height: 10px;
+            width: 150px;
+            display: block;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+    }
+}
+
+.mp-hide {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .mp-filters {
+        margin: 20px;
+
+        &__item {
+            margin: 5px 2px;
+        }
+    }
+    
+    .mp-artists__item {
+        width: 50%;
+    }
+}
